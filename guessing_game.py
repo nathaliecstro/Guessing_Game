@@ -7,6 +7,7 @@ def valid_input(): #function that verifies if the user's input is valid
           return input_user
       else :
           print("Invalid input! >^•-•^<")
+          
 
 def cat_guessing_game():
    number = random.randint(1,15) #generates a random number out of the range established
@@ -29,11 +30,16 @@ def cat_guessing_game():
        print("Invalid input! >^•-•^<")
 
 
-   print(f"Okay, {player}! Guess a number between 1 and 15: ᓚᘏᗢ ")
+   print(f"Okay, {player}! Guess a number between 1 and 15: ᓚᘏᗢ (You have 5 tries by the way!)")
 
    number_of_guesses = 0 #initializes a variable outside of while loop
 
-   while number_of_guesses < 5 :
+   while number_of_guesses <= 5 :
+
+       if number_of_guesses >= 5 :  
+            print(f"Sorry {player}, you did not guess my number. The number was " + str(number) + " /ᐠ - ˕ -マ Ⳋ")
+            print("Goodbye!")
+            return
        guess = input()
        if guess.isdigit():
            guess = int(guess)
@@ -51,19 +57,14 @@ def cat_guessing_game():
                      "|、˜〵\n"
                      "じしˍ,)ノ\n")
            elif guess == number:
-               print(f"Congratulations, {player}! You guessed my number in " + str(
-                   number_of_guesses) + " tries! Good job!\n")
+               print(f"Congratulations, {player}! You guessed my number in " + str(number_of_guesses) + " tries! Good job!\n")
                print("      へ   ♡    ╱|、\n"
                      "૮  >  <)      (˚ˎ 。7\n"
                      "/  ⁻  ៸|        |、˜〵\n"
-                     "乀(ˍ, ل ل        じしˍ,)ノ\n")
-               return  # exists function
-           else:
-               print(f"Sorry {player}, you did not guess my number. The number was " + str(number) + " /ᐠ - ˕ -マ Ⳋ")
-               print("Goodbye!")
-               return  # exists function
+                     "乀(ˍ, ل ل       じしˍ,)ノ\n")
+               return  # exists function 
        else :
            print("Invalid input! >^•-•^<")
 
-
 cat_guessing_game() #calls the function
+
